@@ -3,7 +3,7 @@
 ## Working Command
 
 ```bash
-docker build -t slim -f "./slim/data-plane/Dockerfile" --platform linux/arm64 "./slim"
+docker build -t slim -f "./slim/data-plane/Dockerfile" --platform linux/arm64 --target slim-release "./slim"
 ```
 
 **Reference**: [slim/data-plane/README.md](../slim/data-plane/README.md) lines 27-30
@@ -22,6 +22,7 @@ docker build -t slim -f "./slim/data-plane/Dockerfile" --platform linux/arm64 ".
 1. **Simplified paths**: Used `"./slim"` instead of `"${REPO_ROOT}"` (git rev-parse)
 2. **Single platform**: `--platform linux/arm64` for Apple Silicon (vs multiarch)
 3. **Fixed Dockerfile path**: `"./slim/data-plane/Dockerfile"` (was `"${REPO_ROOT}/data-plane/Dockerfile"`)
+4. **Target correct stage**: `--target slim-release` to get SLIM server (not MCP proxy)
 
 ## Platform Notes
 
