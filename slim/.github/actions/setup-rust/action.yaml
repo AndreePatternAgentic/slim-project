@@ -1,0 +1,40 @@
+# Copyright AGNTCY Contributors (https://github.com/agntcy)
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+name: Setup Environment
+description: setup environment to build/test/lint rust applications
+inputs:
+  toolchain:
+    description: 'Rust toolchain to use'
+    required: false
+    default: 'stable'
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Rust
+      id: setup-rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        cache: false
+        components: rustc, clippy, rustfmt
+
+    - name: Setup Taskfile
+      shell: bash
+      run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
+    - name: Install C/C++ toolchain
+      if: runner.os == 'Linux'
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          clang-14 \
+          llvm-14 \
+          pkg-config \
+          make \
+          gcc-aarch64-linux-gnu \
+          g++-aarch64-linux-gnu \
+          gcc-x86-64-linux-gnu \
+          g++-x86-64-linux-gnu

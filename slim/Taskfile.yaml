@@ -1,0 +1,26 @@
+# Copyright AGNTCY Contributors (https://github.com/agntcy)
+# SPDX-License-Identifier: Apache-2.0
+
+version: "3"
+
+includes:
+  control-plane:
+    taskfile: control-plane/Taskfile.yaml
+    flatten: true
+    dir: ./control-plane
+  data-plane:
+    taskfile: data-plane/Taskfile.yaml
+    flatten: true
+    dir: ./data-plane
+
+silent: true
+
+tasks:
+  default:
+    cmds:
+      - task -l
+
+  version:
+    desc: Get version
+    cmds:
+      - git describe --tags --match "v*" | cut -c 2-

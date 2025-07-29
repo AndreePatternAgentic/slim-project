@@ -1,0 +1,94 @@
+version: '3'
+
+silent: true
+set: [pipefail]
+shopt: [globstar]
+
+verbose: false
+
+env:
+  CONFIG_CLIENT: ../config/base/client-config.yaml
+  CONFIG_SERVER: ./config/base/server-config.yaml
+  SUB: 1000000
+  PUB: 3000000
+  SUB_AGENTS: 10
+  PUB_AGENTS: 1
+
+tasks:
+  default:
+    cmds:
+      - task -l
+
+  run:workload-gen:
+    desc: "Run workload generator"
+    cmds:
+      - cargo run --release --bin workload-gen -- -s $SUB -p $PUB -i $SUB_AGENTS -a $SUB_AGENTS
+
+  run:slim:
+    desc: "Run the SLIM server"
+    dir: ".."
+    cmds:
+      - cargo run --release --bin slim -- --config $CONFIG_SERVER
+
+  run:subscribers:
+    desc: "Run subscriber applications"
+    cmds:
+      - |
+        for ((i = 0 ; i < $SUB_AGENTS ; i++ )); do
+          cargo run --release --bin subscriber -- -w sub${SUB}_pub${PUB}_i${SUB_AGENTS}_s${SUB_AGENTS}.dat -c $CONFIG_CLIENT -i $i &
+          sleep 1
+        done
+
+  run:publisher:
+    desc: "Run publisher application"
+    cmds:
+      - cargo run --release --bin publisher -- -w sub${SUB}_pub${PUB}_i${SUB_AGENTS}_s${SUB_AGENTS}.dat -c $CONFIG_CLIENT -i 0
+
+  run:shutdown:
+    desc: "Shutdown test"
+    cmds:
+      - |
+        echo "stop all subscribers"
+        killall subscriber || true
+        echo "stop all publishers"
+        killall publisher || true
+        echo "stop slim"
+        killall slim || true
+
+  run:channel-test:moderator:mls:
+    desc: "start moderator for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/moderator/1 --is-moderator --participants org/ns/t1 org/ns/t2
+
+  run:channel-test:participant-1:mls:
+    desc: "start participant-1 for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/t1/1 --moderator-name org/ns/moderator/1
+
+  run:channel-test:participant-2:mls:
+    desc: "start participant-2 for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/t2/1 --moderator-name org/ns/moderator/1
+
+  run:channel-test:moderator:no-mls:
+    desc: "start moderator for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/moderator/1 --is-moderator --participants org/ns/t1 org/ns/t2 --mls-disabled
+
+  run:channel-test:participant-1:no-mls:
+    desc: "start participant-1 for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/t1/1 --moderator-name org/ns/moderator/1 --mls-disabled
+
+  run:channel-test:participant-2:no-mls:
+    desc: "start participant-2 for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/t2/1 --moderator-name org/ns/moderator/1 --mls-disabled
+
+  run:channel-test:attacker:
+    desc: "start attacker for test channel"
+    cmds:
+      - cargo run --release --bin channel -- --config $CONFIG_CLIENT --name org/ns/t3/1 --moderator-name org/ns/moderator/1 --is-attacker
+
+
+
