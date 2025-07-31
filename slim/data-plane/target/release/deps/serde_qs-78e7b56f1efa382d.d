@@ -1,0 +1,11 @@
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libserde_qs-78e7b56f1efa382d.rmeta: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/mod.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/parse.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/ser.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libserde_qs-78e7b56f1efa382d.rlib: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/mod.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/parse.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/ser.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/serde_qs-78e7b56f1efa382d.d: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/mod.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/parse.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/ser.rs
+
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/lib.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/mod.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/de/parse.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/error.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_qs-0.8.5/src/ser.rs:

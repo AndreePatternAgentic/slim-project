@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # SLIM Server (message routing)
+  slim-server:
+    image: slim:latest
+    container_name: slim-server
+    ports:
+      - "46357:46357"
+    volumes:
+      - ../slim/data-plane/config/base/server-config.yaml:/config.yaml
+    command: ["/slim", "--config", "/config.yaml"]
+    environment:
+      - PASSWORD=${PASSWORD:-default}
+    networks:
+      - agent-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "46357"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Answer Agent (AI-powered responder)
+  answer-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.answer
+    container_name: answer-agent
+    environment:
+      # Google AI Configuration
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+      - GOOGLE_AI_MODEL=${GOOGLE_AI_MODEL:-gemini-1.5-flash}
+      
+      # SLIM Configuration
+      - SLIM_ENDPOINT=http://slim-server:46357
+      - SLIM_ORG=${SLIM_ORG:-cisco}
+      - SLIM_NAMESPACE=${SLIM_NAMESPACE:-default}
+      - SLIM_SECRET=${SLIM_SECRET:-shared_secret_123}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      slim-server:
+        condition: service_healthy
+    networks:
+      - agent-network
+    restart: unless-stopped
+
+  # Question Agent (AI-powered questioner)
+  question-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.question
+    container_name: question-agent
+    environment:
+      # Google AI Configuration
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+      - GOOGLE_AI_MODEL=${GOOGLE_AI_MODEL:-gemini-1.5-flash}
+      
+      # SLIM Configuration
+      - SLIM_ENDPOINT=http://slim-server:46357
+      - SLIM_ORG=${SLIM_ORG:-cisco}
+      - SLIM_NAMESPACE=${SLIM_NAMESPACE:-default}
+      - SLIM_SECRET=${SLIM_SECRET:-shared_secret_123}
+      
+      # Agent Configuration
+      - QUESTION_INTERVAL=${QUESTION_INTERVAL:-15}
+      - MAX_CONVERSATION_LENGTH=${MAX_CONVERSATION_LENGTH:-10}
+      - CONVERSATION_TOPICS=${CONVERSATION_TOPICS:-technology,science,philosophy,creativity,problem-solving}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      - slim-server
+      - answer-agent
+    networks:
+      - agent-network
+    restart: "no"  # Question agent runs once and exits
+
+networks:
+  agent-network:
+    driver: bridge

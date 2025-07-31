@@ -1,0 +1,15 @@
+# SLIM Agent Communication
+slim-bindings
+
+# Google AI Integration
+google-generativeai
+
+# Environment Configuration
+python-dotenv
+
+# Standard libraries (built-in)
+# asyncio
+# json
+# os
+# sys
+# time

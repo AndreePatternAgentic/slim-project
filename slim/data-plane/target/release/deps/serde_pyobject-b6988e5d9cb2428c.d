@@ -1,0 +1,11 @@
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libserde_pyobject-b6988e5d9cb2428c.rmeta: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/de.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/pylit.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/ser.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libserde_pyobject-b6988e5d9cb2428c.rlib: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/de.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/pylit.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/ser.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/serde_pyobject-b6988e5d9cb2428c.d: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/de.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/error.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/pylit.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/ser.rs
+
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/lib.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/de.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/error.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/pylit.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-pyobject-0.6.2/src/ser.rs:

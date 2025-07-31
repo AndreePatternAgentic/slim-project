@@ -1,0 +1,10 @@
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libnotify_types-fa40d4a04aaea151.rmeta: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_full.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_mini.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/event.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/libnotify_types-fa40d4a04aaea151.rlib: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_full.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_mini.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/event.rs
+
+/Users/andree/PatternAgentic/slim_project/slim/data-plane/target/release/deps/notify_types-fa40d4a04aaea151.d: /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/lib.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_full.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_mini.rs /Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/event.rs
+
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/lib.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_full.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/debouncer_mini.rs:
+/Users/andree/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notify-types-2.0.0/src/event.rs:

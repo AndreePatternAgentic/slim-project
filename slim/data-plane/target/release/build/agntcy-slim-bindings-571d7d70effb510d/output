@@ -1,0 +1,7 @@
+cargo:rustc-env=GIT_SHA=a296f20
+
+cargo:rustc-env=BUILD_DATE=2025-07-30T21:52:47Z
+
+cargo:rustc-env=VERSION=a296f20
+
+cargo:rustc-env=PROFILE=release
