@@ -6,7 +6,7 @@ A working implementation of agent-to-agent communication using AGNTCY's SLIM (Se
 
 ### Prerequisites
 1. SLIM data plane server running on `localhost:46357`
-2. Python 3.8+ with `slim_bindings` installed (built from source with authentication support)
+2. Python 3.8+ with `slim_bindings` installed
 
 ### Running the Agents
 
@@ -76,7 +76,7 @@ To evolve this into intelligent agents:
 ## Files
 
 - **`authenticated_agents.py`** - Main agent implementation
-- **`requirements.txt`** - Dependencies (note: slim_bindings must be built from source)
+- **`requirements.txt`** - Dependencies
 - **`README.md`** - This file
 
 This provides the foundational infrastructure for distributed AI agent systems - the "plumbing" is working, agents can communicate reliably through SLIM.
