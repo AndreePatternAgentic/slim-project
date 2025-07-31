@@ -2,13 +2,42 @@
 
 A working implementation of agent-to-agent communication using AGNTCY's SLIM (Secure Low-Latency Interactive Messaging) data plane server.
 
+## Requirements
+
+### 1. SLIM Data Plane Server
+You need a SLIM server running on `localhost:46357`. You can either:
+
+**Option A: Use Docker (Recommended)**
+```bash
+# Build SLIM server from source
+git clone https://github.com/agntcy/slim.git
+cd slim
+docker build -t slim -f "./data-plane/Dockerfile" --platform linux/arm64 --target slim-release .
+
+# Run SLIM server
+docker run -it \
+    -v ./data-plane/config/base/server-config.yaml:/config.yaml \
+    -p 46357:46357 \
+    slim /slim --config /config.yaml
+```
+
+**Option B: Build from Source**
+```bash
+# Clone and build SLIM
+git clone https://github.com/agntcy/slim.git
+cd slim/data-plane
+cargo build --release
+
+# Run SLIM server
+./target/release/slim --config config/base/server-config.yaml
+```
+
+### 2. Python Dependencies
+```bash
+pip install slim-bindings
+```
+
 ## Quick Start
-
-### Prerequisites
-1. SLIM data plane server running on `localhost:46357`
-2. Python 3.8+ with `slim_bindings` installed
-
-### Running the Agents
 
 #### Start Agent B (Receiver)
 ```bash
@@ -64,6 +93,42 @@ python authenticated_agents.py test
                   └─────────────────┘
 ```
 
+## Complete Setup Instructions
+
+### Step 1: Install Python Dependencies
+```bash
+pip install slim-bindings
+```
+
+### Step 2: Start SLIM Server
+Choose one of the options above to get a SLIM server running on `localhost:46357`
+
+### Step 3: Test Agent Communication
+```bash
+# Terminal 1: Start Agent B (receiver)
+python authenticated_agents.py
+
+# Terminal 2: Send message from Agent A
+python authenticated_agents.py sender
+
+# Or run integrated test
+python authenticated_agents.py test
+```
+
+## Files
+
+- **`authenticated_agents.py`** - Main agent implementation
+- **`requirements.txt`** - Python dependencies
+- **`README.md`** - This file
+
+## Troubleshooting
+
+**"Connection refused" errors**: Make sure SLIM server is running on `localhost:46357`
+
+**"No module named 'slim_bindings'"**: Run `pip install slim-bindings`
+
+**Agent ID errors**: The agents use authentication to preserve human-readable IDs - this is normal and required
+
 ## Next Steps
 
 To evolve this into intelligent agents:
@@ -73,10 +138,6 @@ To evolve this into intelligent agents:
 4. Add memory systems
 5. Build task planning capabilities
 
-## Files
+## What This Provides
 
-- **`authenticated_agents.py`** - Main agent implementation
-- **`requirements.txt`** - Dependencies
-- **`README.md`** - This file
-
-This provides the foundational infrastructure for distributed AI agent systems - the "plumbing" is working, agents can communicate reliably through SLIM.
+This is the foundational infrastructure for distributed AI agent systems - the "plumbing" is working, agents can communicate reliably through SLIM. You can build intelligent agents on top of this communication layer.

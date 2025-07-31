@@ -1,12 +1,14 @@
 # SLIM Agent Communication Requirements
 
-# Core dependency
-# slim_bindings  # Install from ./slim/data-plane/python-bindings/
+# Main dependency - install with pip
+slim-bindings
 
-# Standard Python libraries used
-asyncio  # Built-in, no install needed
-sys      # Built-in, no install needed
+# Standard Python libraries (built-in, no install needed)
+# asyncio
+# sys
 
-# To install slim_bindings:
-# cd ../slim/data-plane/python-bindings
-# pip install -e .
+# To install:
+# pip install slim-bindings
+
+# You also need a SLIM server running on localhost:46357
+# See README.md for SLIM server setup instructions
