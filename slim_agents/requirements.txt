@@ -1,0 +1,15 @@
+# SLIM Agent Communication Requirements
+# 
+# Note: slim_bindings must be built from source with authentication support
+# See main project documentation for build instructions
+
+# Core dependency (must be built from source)
+# slim_bindings  # Built from ./slim/data-plane/python-bindings/
+
+# Standard Python libraries used
+asyncio  # Built-in, no install needed
+sys      # Built-in, no install needed
+
+# Build requirements (if building slim_bindings from source)
+# maturin>=1.0.0
+# setuptools-rust
